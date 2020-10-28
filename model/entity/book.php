@@ -1,6 +1,61 @@
 <?php
+require_once "model/entity/Entity.php";
+
 // Classe représetant les livres stockés en base de données
-class Livre {
+final class Book extends Entity {
 
+    protected string $title;
+    protected string $author;
+    protected string $resume;
+    protected string $date;
+    protected string $category;
+    protected int $user_id;
 
+    public function setTitle(string $title) {
+        $this->title=htmlspecialchars($title);
+    }
+    public function getTitle() {
+        return $this->title;
+    }
+
+    public function setAuthor(string $author) {
+        $this->author=htmlspecialchars($author);
+    }
+    public function getAuthor() {
+        return $this->author;
+    }
+
+    public function setResume(string $resume) {
+        $this->resume=htmlspecialchars($resume);
+    }
+    public function getResume() {
+        return $this->resume;
+    }
+
+    public function setDate(string $date) {
+        $this->date=htmlspecialchars($date);
+    }
+    public function getDate() {
+        return $this->date;
+    }
+
+    public function setCategory(string $category) {
+        $this->category=htmlspecialchars($category);
+    }
+    public function getCategory() {
+        return $this->category;
+    }
+
+    public function setUser_id(string $user_id) {
+        $user_id = intval($user_id);
+        $this->user_id=htmlspecialchars($user_id);
+    }
+    public function getUser_id() {
+        return $this->user_id;
+    }
+
+    public function __construct($data) {
+        $this->hydrate($data);
+    }
 }
+?>

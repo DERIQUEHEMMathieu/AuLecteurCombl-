@@ -18,10 +18,12 @@
 
   <body>
     <!-- Header -->
-    <header class="jumbotron jumbotron-fluid bg-info">
-        <section class="container">
-            <div class="container text-center">
+    <header class="jumbotron jumbotron-fluid bg-info m-o border-bottom p-2">
+        <div class="row">
+            <img class="ml-5" style="width: auto; height: 8em;" src="public/img/logobibliotheque.jpg" alt="Logo bibliothèque">
+            <div class="ml-5 my-auto">
                 <h1 class="display-4 font-weight-bold">Au lecteur joyeux</h1>
             </div>
-        </section>
+        </div>
     </header>
+    <!-- End of Header -->
