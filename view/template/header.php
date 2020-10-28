@@ -18,7 +18,7 @@
 
   <body>
     <!-- Header -->
-    <header class="jumbotron jumbotron-fluid bg-info  m-o border-bottom p-2">
+    <header class="jumbotron jumbotron-fluid bg-info m-o border-bottom p-2">
         <div class="row">
             <img class="ml-5" style="width: auto; height: 8em;" src="public/img/logobibliotheque.jpg" alt="Logo bibliothèque">
             <div class="ml-5 my-auto">
@@ -26,3 +26,4 @@
             </div>
         </div>
     </header>
+    <!-- End of Header -->
