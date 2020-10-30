@@ -1,5 +1,5 @@
-<h4 class="text-center mx-auto bg-info text-dark" style="width: 20%;">Liste des livres</h4>
 <!-- <p>Vos livre au catalogue s'affichent sur cette page</p> -->
+<h4 class="text-center mx-auto bg-info text-dark" style="width: 20%;">Liste des livres</h4>
 <div class="mx-auto">
         <table class="table table-striped text-center">
           <thead>
@@ -11,7 +11,8 @@
                 <th scope="col">Parution</th>
                 <th scope="col">Categorie</th>
                 <th scope="col">Emprunteur</th>
-                <th scope="col">Accès fiche livre</th>
+                <th scope="col">Fiche livre</th>
+                <th scope="col">Suppression du livre</th>
             </tr>
           </thead>
           <tbody>

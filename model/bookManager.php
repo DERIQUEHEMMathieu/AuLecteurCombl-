@@ -9,7 +9,7 @@ class BookManager extends DataBase {
       FROM book"
     );
     $query->execute();
-    $books =$query -> fetchAll(PDO::FETCH_ASSOC);
+    $books = $query -> fetchAll(PDO::FETCH_ASSOC);
     foreach ($books as $key => $book) {
       $books[$key] = new Book($book);
     }
@@ -32,12 +32,37 @@ class BookManager extends DataBase {
   }
 
   // Ajoute un nouveau livre
-  public function addBook() {
-
+  public function addBook(Book $book):Bool {
+    $query = $this->getDB()->prepare(
+      "INSERT INTO book(title, author, resume, date, category)
+      VALUES (:title, :author, :resume, :date, :category)"
+    );
+    $result = $query->execute([
+      "title"=>$book->getTitle(),
+      "author"=>$book->getAuthor(),
+      "resume"=>$book->getResume(),
+      "date"=>$book->getDate(),
+      "category"=>$book->getCategory()
+    ]);
+    return $result;
   }
 
   // Met à jour le statut d'un livre emprunté
-  public function updateBookStatus() {
-
+  public function updateBookStatus(Book $book, ?int $userId):Bool {
+    if (empty($userId)) {
+      $userId = null;
+    }
+    $query = $this->getDB()->prepare(
+      "UPDATE book
+      SET user_id = :user_id
+      WHERE id = :book_id"
+    );
+    $result = $query->execute([
+      "user_id"=>$userId,
+      "book_id"=>$book->getId()
+    ]);
+    return $result;
+    header("Location: index.php");
+    exit();
   }
 }

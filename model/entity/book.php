@@ -12,21 +12,21 @@ final class Book extends Entity {
     protected int $user_id;
 
     public function setTitle(string $title) {
-        $this->title=htmlspecialchars($title);
+        $this->title=htmlspecialchars(ucfirst($title));
     }
     public function getTitle() {
         return $this->title;
     }
 
     public function setAuthor(string $author) {
-        $this->author=htmlspecialchars($author);
+        $this->author=htmlspecialchars(ucfirst($author));
     }
     public function getAuthor() {
         return $this->author;
     }
 
     public function setResume(string $resume) {
-        $this->resume=htmlspecialchars($resume);
+        $this->resume=htmlspecialchars(ucfirst($resume));
     }
     public function getResume() {
         return $this->resume;
@@ -40,7 +40,7 @@ final class Book extends Entity {
     }
 
     public function setCategory(string $category) {
-        $this->category=htmlspecialchars($category);
+        $this->category=htmlspecialchars(ucfirst($category));
     }
     public function getCategory() {
         return $this->category;

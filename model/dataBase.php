@@ -4,9 +4,9 @@
 
 abstract class DataBase {
     const HOST = "localhost";
-    const DBNAME = "aulecteurjoyeux";
-    const USER = "Admin";
-    const PASSWORD = "admin";
+    const DBNAME = "librairie";
+    const USER = "root";
+    const PASSWORD = "";
     private $db;
 
     public function setDB(PDO $connexion) {
