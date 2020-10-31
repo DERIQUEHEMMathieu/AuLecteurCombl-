@@ -61,8 +61,22 @@ class BookManager extends DataBase {
       "user_id"=>$userId,
       "book_id"=>$book->getId()
     ]);
-    return $result;
     header("Location: index.php");
     exit();
+    return $result;
+  }
+
+  // Supprimer un livre
+  public function bookDelete(Book $book):Bool {
+    $query = $this->getDB()->prepare(
+      "DELETE FROM book
+      WHERE id = :id"
+    );
+    $result = $query->execute([
+      "id"=>$book->getId()
+    ]);
+    header("Location:index.php");
+    exit();
+    return $result;
   }
 }

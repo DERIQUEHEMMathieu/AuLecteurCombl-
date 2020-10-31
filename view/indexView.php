@@ -10,9 +10,9 @@
                 <th scope="col">Resumé</th>
                 <th scope="col">Parution</th>
                 <th scope="col">Categorie</th>
+                <th scope="col">Statut livre</th>
                 <th scope="col">Emprunteur</th>
                 <th scope="col">Fiche livre</th>
-                <th scope="col">Suppression du livre</th>
             </tr>
           </thead>
           <tbody>
@@ -24,7 +24,17 @@
                 <td><?php echo $book->getResume(); ?></td>
                 <td><?php echo $book->getDate(); ?></td>
                 <td><?php echo $book->getCategory(); ?></td>
-                <td><?php echo ($book->getUser_id())?$book->getUser_id(): ""; ?></td>
+                <td><?php
+                  if (!empty($book->getUser_id())) { ?>
+                  Livre emprunté
+                  <?php
+                  }
+                  else { ?>
+                  Livre disponible
+                  <?php
+                  } ?>
+                  </td>
+                  <td><?php echo ($book->getUser_id())?$book->getUser_id(): ""; ?></td>
                 <form action="POST" name="bookSingle">
                   <td><a type="submit" href="book.php?<?php echo "id=".$book->getId();?>" name="bookSingle">Fiche</a></td>
                 </form>

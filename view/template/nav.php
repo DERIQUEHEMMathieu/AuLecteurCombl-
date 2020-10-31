@@ -13,7 +13,7 @@
           <a class="nav-link" href="ajoutLivre.php">Ajout livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="blog.php">Abonnés</a>
+          <a class="nav-link" href="users.php">Abonnés</a>
         </li>
       </ul>
     </div>
