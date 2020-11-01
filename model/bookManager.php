@@ -47,21 +47,21 @@ class BookManager extends DataBase {
     return $result;
   }
 
-  // Met à jour le statut d'un livre emprunté
-  public function updateBookStatus(Book $book, ?int $userId):Bool {
-    if (empty($userId)) {
-      $userId = null;
+  // Pour mettre à jour le statut d'un livre emprunté
+  public function updateBookStatus(Book $book, ?int $userID):bool {
+    if (empty($userID)){
+      $userID = NULL;
     }
     $query = $this->getDB()->prepare(
       "UPDATE book
-      SET user_id = :user_id
-      WHERE id = :book_id"
-    );
-    $result = $query->execute([
-      "user_id"=>$userId,
-      "book_id"=>$book->getId()
+      SET user_id =:user_id
+      WHERE id = :book_id
+      ");
+    $result=$query->execute([
+      "user_id" => $userID,
+      "book_id" => $book->getId()
     ]);
-    header("Location: index.php");
+    header("Location:index.php");
     exit();
     return $result;
   }

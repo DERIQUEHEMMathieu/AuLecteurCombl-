@@ -10,7 +10,7 @@
                 <th scope="col">Parution</th>
                 <th scope="col">Categorie</th>
                 <th scope="col">Emprunteur</th>
-                <th scope="col">Suppression du livre</th>
+                <th scope="col">Livre rendu</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +22,10 @@
                 <td><?php echo $book->getDate(); ?></td>
                 <td><?php echo $book->getCategory(); ?></td>
                 <td><?php echo ($book->getUser_id())?$book->getUser_id(): ""; ?></td>
+                <td><form action="" method="post">
+                  <input class="btn btn-danger" type="submit" Value="Livre rendu" name="bookDelete" id="bookDelete"></input>
+                  </form>
+                </td>
               </tr>
         </tbody>
     </table>
@@ -41,7 +45,7 @@ else{
     <div class="form-group form-column col-md-5">
       <label for="user_id">Emprunteur</label>
       <input type="text" name="user_id" id="user_id"></input>
-      <button class="btn btn-success text-white mx-2 my-0" type="submit">Valider</button>
+      <button class="btn btn-success text-dark mx-2 my-0" type="submit">Valider</button>
     </div>
   </form>
 <?php

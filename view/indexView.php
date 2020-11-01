@@ -7,7 +7,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Titre</th>
                 <th scope="col">Auteur</th>
-                <th scope="col">Resumé</th>
                 <th scope="col">Parution</th>
                 <th scope="col">Categorie</th>
                 <th scope="col">Statut livre</th>
@@ -21,7 +20,6 @@
                 <th scope="row"><?php echo $book->getId(); ?></th>
                 <td><?php echo $book->getTitle(); ?></td>
                 <td><?php echo $book->getAuthor(); ?></td>
-                <td><?php echo $book->getResume(); ?></td>
                 <td><?php echo $book->getDate(); ?></td>
                 <td><?php echo $book->getCategory(); ?></td>
                 <td><?php
