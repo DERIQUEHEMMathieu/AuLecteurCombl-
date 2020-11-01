@@ -43,7 +43,7 @@ else{
 ?>
   <form action="" method="post">
     <div class="form-group form-column col-md-5">
-      <label for="user_id">Emprunteur</label>
+      <label for="user_id">Emprunteur :</label>
       <input type="text" name="user_id" id="user_id"></input>
       <button class="btn btn-success text-dark mx-2 my-0" type="submit">Valider</button>
     </div>
