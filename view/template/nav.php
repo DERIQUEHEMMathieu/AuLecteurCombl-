@@ -10,10 +10,10 @@
           <a class="nav-link" href="index.php">Accueil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="statistic.php">Livres</a>
+          <a class="nav-link" href="ajoutLivre.php">Ajout livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="blog.php">Abonnées</a>
+          <a class="nav-link" href="users.php">Abonnés</a>
         </li>
       </ul>
     </div>

@@ -9,7 +9,7 @@ class BookManager extends DataBase {
       FROM book"
     );
     $query->execute();
-    $books =$query -> fetchAll(PDO::FETCH_ASSOC);
+    $books = $query -> fetchAll(PDO::FETCH_ASSOC);
     foreach ($books as $key => $book) {
       $books[$key] = new Book($book);
     }
@@ -32,12 +32,51 @@ class BookManager extends DataBase {
   }
 
   // Ajoute un nouveau livre
-  public function addBook() {
-
+  public function addBook(Book $book):Bool {
+    $query = $this->getDB()->prepare(
+      "INSERT INTO book(title, author, resume, date, category)
+      VALUES (:title, :author, :resume, :date, :category)"
+    );
+    $result = $query->execute([
+      "title"=>$book->getTitle(),
+      "author"=>$book->getAuthor(),
+      "resume"=>$book->getResume(),
+      "date"=>$book->getDate(),
+      "category"=>$book->getCategory()
+    ]);
+    return $result;
   }
 
-  // Met à jour le statut d'un livre emprunté
-  public function updateBookStatus() {
+  // Pour mettre à jour le statut d'un livre emprunté
+  public function updateBookStatus(Book $book, ?int $userID):bool {
+    if (empty($userID)){
+      $userID = NULL;
+    }
+    $query = $this->getDB()->prepare(
+      "UPDATE book
+      SET user_id =:user_id
+      WHERE id = :book_id
+      ");
+    $result=$query->execute([
+      "user_id" => $userID,
+      "book_id" => $book->getId()
+    ]);
+    header("Location:index.php");
+    exit();
+    return $result;
+  }
 
+  // Supprimer un livre
+  public function bookDelete(Book $book):Bool {
+    $query = $this->getDB()->prepare(
+      "DELETE FROM book
+      WHERE id = :id"
+    );
+    $result = $query->execute([
+      "id"=>$book->getId()
+    ]);
+    header("Location:index.php");
+    exit();
+    return $result;
   }
 }
